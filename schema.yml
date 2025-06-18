@@ -1,0 +1,18 @@
+version: "0.1.0"
+
+index:
+    name: goboscript
+    prefix: goboscript
+
+fields:
+    - name: path
+      type: text
+    - name: text
+      type: text
+    - name: embedding
+      type: vector
+      attrs:
+          algorithm: flat
+          dims: 1024
+          distance_metric: cosine
+          datatype: float32

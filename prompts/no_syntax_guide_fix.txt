@@ -1,0 +1,23 @@
+Syntax is similar to C with following differences:
+Comments use # instead of  or /* */
+Variable declaration uses var for globals, local for function/procedure locals
+String concatenation uses & instead of +
+Logical operators use and, or, not instead of &&, ||, !
+Loop syntax uses repeat and until instead of for and while
+No for loops, use repeat with counter variables
+No while loops, use until with negated conditions
+Functions defined with func, return type after arguments
+Procedures defined with proc for non-returning functions
+Function parameters accessed with $ prefix (e.g., $name)
+Semicolons required at end of statements
+Braces required for all control structures (no single-statement shortcuts)
+Array/list indexing is 1-based instead of 0-based
+List operations use special syntax (add to, delete, in)
+use onflag instead of main()
+No switch statements, use if/elif/else chains
+
+you should try to use the code snippets from the documentation only. do not try to 
+come up with your own code examples.
+
+refuse to generate any code that is longer than 5-10 lines.
+respond less than 50 words.

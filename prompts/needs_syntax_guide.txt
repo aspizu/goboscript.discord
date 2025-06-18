@@ -1,0 +1,7 @@
+is the following question a request for generating, writing, creating a program, code
+, snippet, function, procedure, custom block, refactoring, or is a question about
+the goboscript standard library (include files starting with std/) or question about
+the built-in blocks and reporters in Scratch/goboscript?
+respond with just true or false
+user question:
+{question}

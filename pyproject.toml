@@ -1,0 +1,42 @@
+[project]
+name = "ragtest"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "aiofiles>=24.1.0",
+    "anthropic>=0.54.0",
+    "click>=8.2.1",
+    "discord>=2.3.2",
+    "dotenv>=0.9.9",
+    "google-genai>=1.20.0",
+    "markdown-it-py>=3.0.0",
+    "mistletoe>=1.4.0",
+    "numpy>=2.3.0",
+    "redisvl>=0.7.0",
+    "rich>=14.0.0",
+    "sentence-transformers>=4.1.0",
+    "voyageai>=0.3.2",
+]
+
+[tool.pyright]
+typeCheckingMode = "strict"
+reportUnnecessaryTypeIgnoreComment = true
+reportUnknownVariableType = false
+reportUnknownMemberType = false
+reportUnknownArgumentType = false
+reportMissingModuleSource = false
+reportMissingTypeStubs = false
+reportWildcardImportFromLibrary = false
+reportPrivateUsage = false
+reportPrivateImportUsage = false
+
+[tool.ruff.lint]
+select = ["ALL"]
+extend-safe-fixes = ["ALL"]
+unfixable = []
+ignore = ["COM", "D", "T201","A004","FBT", "E501"]
+
+[tool.ruff.lint.isort]
+required-imports = ["from __future__ import annotations"]
