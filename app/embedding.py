@@ -2,13 +2,13 @@ from __future__ import annotations
 
 import numpy as np
 
-from . import vo_client
+from .services import voyage
 
 
 async def embed(
     documents: list[str],
 ) -> list[bytes]:
-    response = await vo_client.embed(
+    response = await voyage.embed(
         documents,
         model="voyage-3.5",
         input_type="query",

@@ -1,27 +1,23 @@
 [project]
-name = "ragtest"
+name = "goboscript-discord"
 version = "0.1.0"
-description = "Add your description here"
+description = "The goboscript discord bot."
 readme = "README.md"
-requires-python = ">=3.13"
+requires-python = ">=3.13.5"
 dependencies = [
-    "aiofiles>=24.1.0",
     "anthropic>=0.54.0",
-    "click>=8.2.1",
     "discord>=2.3.2",
-    "dotenv>=0.9.9",
-    "google-genai>=1.20.0",
-    "markdown-it-py>=3.0.0",
-    "mistletoe>=1.4.0",
+    "httpx>=0.28.1",
+    "langchain>=0.3.25",
     "numpy>=2.3.0",
+    "python-dotenv>=1.1.0",
     "redisvl>=0.7.0",
-    "rich>=14.0.0",
-    "sentence-transformers>=4.1.0",
+    "rich-click>=1.8.9",
+    "sb2gs",
     "voyageai>=0.3.2",
 ]
 
 [tool.pyright]
-typeCheckingMode = "strict"
 reportUnnecessaryTypeIgnoreComment = true
 reportUnknownVariableType = false
 reportUnknownMemberType = false
@@ -31,12 +27,18 @@ reportMissingTypeStubs = false
 reportWildcardImportFromLibrary = false
 reportPrivateUsage = false
 reportPrivateImportUsage = false
+reportAny = false
+reportExplicitAny = false
+reportUnusedCallResult = false
 
 [tool.ruff.lint]
 select = ["ALL"]
 extend-safe-fixes = ["ALL"]
-unfixable = []
-ignore = ["COM", "D", "T201","A004","FBT", "E501"]
+unfixable = ["F841"]
+ignore = ["D", "COM", "ANN401", "S101"]
 
 [tool.ruff.lint.isort]
 required-imports = ["from __future__ import annotations"]
+
+[tool.uv.sources]
+sb2gs = { path = "../sb2gs" }

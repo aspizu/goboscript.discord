@@ -1,0 +1,7 @@
+-   Don't write comments and doc-strings.
+-   Don't catch all exceptions.
+-   Try to reduce indentation.
+-   Do not create a function if its only used once.
+-   Try to reduce the no. of lines.
+-   Don't make functions or fields private.
+-   Do not use object-oriented programming.

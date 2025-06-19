@@ -1,8 +1,10 @@
 from __future__ import annotations
 
 import re
+from typing import final
 
 
+@final
 class MarkdownChunker:
     def __init__(self, max_length: int = 2000) -> None:
         self.max_length = max_length
