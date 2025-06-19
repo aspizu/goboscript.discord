@@ -40,10 +40,16 @@ class MarkdownChunker:
                     code_lang = ""
 
             # Check if we need to start a new chunk
-            space_needed = self._calculate_space_needed(current_line, in_code_block)
+            space_needed = self._calculate_space_needed(
+                current_line,
+                in_code_block=in_code_block,
+            )
             if current_length + space_needed > self.max_length and current_chunk:
                 # Finalize current chunk
-                chunk_text = self._finalize_chunk(current_chunk, in_code_block)
+                chunk_text = self._finalize_chunk(
+                    current_chunk,
+                    in_code_block=in_code_block,
+                )
                 chunks.append(chunk_text)
 
                 # Start new chunk
@@ -62,7 +68,10 @@ class MarkdownChunker:
 
         # Handle final chunk
         if current_chunk:
-            chunk_text = self._finalize_chunk(current_chunk, in_code_block)
+            chunk_text = self._finalize_chunk(
+                current_chunk,
+                in_code_block=in_code_block,
+            )
             chunks.append(chunk_text)
 
         return self._ensure_valid_chunks(chunks, markdown_text)
@@ -77,13 +86,13 @@ class MarkdownChunker:
             truncated += "\n"
         return truncated
 
-    def _calculate_space_needed(self, line: str, in_code_block: bool) -> int:
+    def _calculate_space_needed(self, line: str, *, in_code_block: bool) -> int:
         """Calculate space needed for a line, including potential code block closing."""
         line_length = len(line)
         closing_fence_length = 4 if in_code_block else 0  # "```\n"
         return line_length + closing_fence_length
 
-    def _finalize_chunk(self, chunk_lines: list[str], in_code_block: bool) -> str:
+    def _finalize_chunk(self, chunk_lines: list[str], *, in_code_block: bool) -> str:
         """Finalize a chunk, ensuring it doesn't exceed max_length."""
         if not chunk_lines:
             return ""
